@@ -30,13 +30,12 @@ Exec=~/shadowsocks_installer_inner.sh
 Type=Application
 Name=shadowsocks_installer_inner" > shadowsocks_installer_inner.desktop 
 
-sudo -cp -f shadowsocks_installer_inner.desktop /etc/xdg/autostart/
+sudo cp -f shadowsocks_installer_inner.desktop /etc/xdg/autostart/
 
-#2-install RuiSu speeder
-wget -N  --no-check-certificate https://raw.githubusercontent.com/91yun/serverspeeder/master/serverspeeder-all.sh
-chmod +x serverspeeder-all.sh
+#2-install bbr speeder
+wget --no-check-certificate https://raw.githubusercontent.com/brucechenssfireinthehole/ssvpn/main/bbr.sh && chmod +x bbr.sh
 expect -c "
-spawn bash serverspeeder-all.sh
+spawn ./bbr.sh
 expect \"Do you want to restart system?\" {send \"y\n\"}
 expect eof
 "
