@@ -55,11 +55,11 @@ wget --no-check-certificate https://raw.githubusercontent.com/brucechenssfireint
 expect -c "
 spawn ./bbr.sh
 expect \"Press any key to start\" {send \"\n\"}
-interact
 expect \"Do you want to restart system?\" {send \"y\n\"}
 interact
 "
 
+reboot
 # ./bbr.sh
 # sleep 60
 # reboot
