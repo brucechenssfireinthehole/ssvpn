@@ -7,6 +7,7 @@ sudo echo "y" | yum install expect
 touch shadowsocks_installer_inner.sh
 chmod 777 shadowsocks_installer_inner.sh
 echo "#!/bin/bash
+cd ~
 echo \"hello world\" > helloworld.txt
 #install shadowsocks server
 wget --no-check-certificate -O shadowsocks.sh https://raw.githubusercontent.com/brucechenssfireinthehole/ssvpn/main/shadowsocks.sh
