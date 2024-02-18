@@ -51,13 +51,14 @@ sudo systemctl start rc-local
 
 #2-install bbr speeder
 wget --no-check-certificate https://raw.githubusercontent.com/brucechenssfireinthehole/ssvpn/main/bbr.sh && chmod +x bbr.sh
-expect -c "
-spawn ./bbr.sh
-expect \"Press any key to start\" {send \"\n\"}
-expect eof
-"
+# expect -c "
+# spawn ./bbr.sh
+# expect \"Press any key to start\" {send \"\n\"}
+# expect eof
+# "
 #expect \"Do you want to restart system?\" {send \"y\n\"}
 
-# echo "a" | ./bbr.sh
-sleep 180
-reboot
+./bbr.sh
+# sleep 60
+# reboot
+
