@@ -22,17 +22,7 @@ expect \\\"Press any key to start\\\" {send \\\"\n\\\"}
 interact
 \"
 " > shadowsocks_installer_inner.sh
-#sudo cp -f shadowsocks_installer_inner.sh /usr/bin/
 
-# touch shadowsocks_installer_inner.desktop
-# chmod 777 shadowsocks_installer_inner.desktop
-# echo "[Desktop Entry]
-# Encoding=UTF-8
-# Exec=/usr/bin/shadowsocks_installer_inner.sh
-# Type=Application
-# Name=shadowsocks_installer_inner" > shadowsocks_installer_inner.desktop
-
-# sudo cp -f shadowsocks_installer_inner.desktop /etc/xdg/autostart/
 
 touch /etc/systemd/system/rc-local.service
 chmod 777 /etc/systemd/system/rc-local.service
@@ -57,12 +47,4 @@ spawn ./bbr.sh
 expect \"Press any key to start\" {send \"\n\"}
 interact
 "
-expect -c "
-spawn echo \"wait for system reboot\"
-expect \"Do you want to restart system\" {send \"y\n\"}
-interact
-"
-# reboot
-# ./bbr.sh
-# sleep 60
-# reboot
+# expect \"Do you want to restart system\" {send \"y\n\"}
