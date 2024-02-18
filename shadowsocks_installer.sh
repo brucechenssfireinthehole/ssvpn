@@ -24,15 +24,30 @@ expect eof
 " > shadowsocks_installer_inner.sh
 sudo cp -f shadowsocks_installer_inner.sh /usr/bin/
 
-touch shadowsocks_installer_inner.desktop 
-chmod 777 shadowsocks_installer_inner.desktop
-echo "[Desktop Entry]
-Encoding=UTF-8
-Exec=/usr/bin/shadowsocks_installer_inner.sh
-Type=Application
-Name=shadowsocks_installer_inner" > shadowsocks_installer_inner.desktop 
+# touch shadowsocks_installer_inner.desktop 
+# chmod 777 shadowsocks_installer_inner.desktop
+# echo "[Desktop Entry]
+# Encoding=UTF-8
+# Exec=/usr/bin/shadowsocks_installer_inner.sh
+# Type=Application
+# Name=shadowsocks_installer_inner" > shadowsocks_installer_inner.desktop 
 
-sudo cp -f shadowsocks_installer_inner.desktop /etc/xdg/autostart/
+# sudo cp -f shadowsocks_installer_inner.desktop /etc/xdg/autostart/
+
+touch /etc/systemd/system/rc-local.service
+chmod 777 /etc/systemd/system/rc-local.service
+echo "[Install]
+WantedBy=multi-user.target
+Alias=rc-local.service
+" > /etc/systemd/system/rc-local.service
+
+touch /etc/rc.local 
+chmod 777 /etc/rc.local 
+echo "#!/bin/bash
+/usr/bin/shadowsocks_installer_inner.sh
+" > /etc/rc.local 
+
+sudo systemctl start rc-local
 
 #2-install bbr speeder
 wget --no-check-certificate https://raw.githubusercontent.com/brucechenssfireinthehole/ssvpn/main/bbr.sh && chmod +x bbr.sh
@@ -44,5 +59,5 @@ expect eof
 #expect \"Do you want to restart system?\" {send \"y\n\"}
 
 # echo "a" | ./bbr.sh
-sleep 60
+sleep 180
 reboot
