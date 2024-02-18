@@ -29,6 +29,7 @@ Encoding=UTF-8
 Exec=~/shadowsocks_installer_inner.sh
 Type=Application
 Name=shadowsocks_installer_inner" > shadowsocks_installer_inner.desktop 
+
 sudo -cp -f shadowsocks_installer_inner.desktop /etc/xdg/autostart/
 
 #2-install RuiSu speeder
@@ -39,4 +40,4 @@ spawn bash serverspeeder-all.sh
 expect \"Do you want to restart system?\" {send \"y\n\"}
 expect eof
 "
-reboot
+
