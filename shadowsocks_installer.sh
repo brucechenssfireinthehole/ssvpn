@@ -19,7 +19,8 @@ expect \\\"Please enter password for shadowsocks-python\\\" {send \\\"123456\n\\
 expect \\\"Please enter a port for shadowsocks-python\\\" {send \\\"6000\n\\\"}
 expect \\\"Please select stream cipher for\\\" {send \\\"1\n\\\"}
 expect \\\"Press any key to start\\\" {send \\\"\n\\\"}
-interact
+# interact
+expect eof
 \"
 " > shadowsocks_installer_inner.sh
 
