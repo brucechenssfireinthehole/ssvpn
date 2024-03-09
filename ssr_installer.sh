@@ -44,7 +44,7 @@ sudo echo "y" | apt install expect
 wget --no-check-certificate https://raw.githubusercontent.com/brucechenssfireinthehole/ssvpn/main/ssr.sh && chmod +x ssr.sh
 expect -c "
 spawn bash ./ssr.sh
-expect \"请输入数字 [1-15]\" {send \"1\n\"}
+expect \"请输入数字\" {send \"1\n\"}
 expect \"端口\" {send \"2333\n\"}
 expect \"密码\" {send \"123456\n\"}
 expect \"加密方式\" {send \"1\n\"}
